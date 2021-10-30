@@ -1,0 +1,4 @@
+DECLARE EVENT BUY(name string,id int,volume int,price double,stock_time int)
+DECLARE EVENT SELL(name string,id int,volume int,price double,stock_time int)
+
+DECLARE STREAM S(BUY, SELL)

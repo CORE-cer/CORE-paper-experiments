@@ -1,0 +1,10 @@
+PATTERN SEQ(SELL a, BUY b, BUY c, SELL d)
+WHERE skip-till-any-match
+AND a.name = MSFT
+AND a.price > 2600
+AND b.name = ORCL
+AND b.price > 1114
+AND c.name = CSCO
+AND d.name = AMAT
+AND d.price >= 1892
+WITHIN TIMESTAMP

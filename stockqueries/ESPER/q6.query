@@ -1,0 +1,11 @@
+select s1, b1, b2, s2 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
+match_recognize (
+partition by volume
+measures s1 as s1, b1 as b1, b2 as b2, s2 as s2
+all matches
+pattern (s1 s* b1 s* b2 s* s2)
+define
+    s1 as s1.type = "SELL" and s1.name = "MSFT",
+    b1 as (b1.type = "BUY" or b1.type = "SELL") and b1.name = "ORCL",
+    b2 as (b2.type = "BUY" or b2.type = "SELL") and b2.name = "CSCO",
+    s2 as s2.type = "SELL" and s2.name = "AMAT")
