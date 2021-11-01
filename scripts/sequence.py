@@ -7,19 +7,16 @@ import sys
 
 TESTS = ['Time', 'Memory']
 # TESTS = ['Time']
-# TESTS = ['Memory']
-STREAM_EVENTS = [5, 3, 7, 9, 11]
+STREAM_EVENTS = [5, 3, 7, 9]
 # STREAM_EVENTS = [3]
 STREAM_LENGTH = 100_000_000
 WIN_LENGTH = [100]
-# WIN_LENGTH = [100]
 NOISE_EVENTS = [6]
 ITERATIONS = 3
 TIMEOUTS = [30]
-# TIMEOUTS = [10, 15]
 # SYSTEMS = ['siddhi']
 SYSTEMS = ['flink', 'core', 'sase', 'core1', 'esper8']
-TEST_NAME = 'seq_siddhi'
+TEST_NAME = 'seq'
 CONSUME = True
 NUM_EVENT_DICT = {}
 
