@@ -1,0 +1,5 @@
+export SASE_HOME="$HOME/SASE/src-code"
+export CLASSPATH="$SASE_HOME/SASE/src-code/lib/jeval.jar:$SASE_HOME/SASE/src-code/build/sase.jar"
+export PATH="$PATH:$SASE_HOME/bin"
+
+
