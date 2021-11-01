@@ -7,9 +7,9 @@ import sys
 
 # TESTS = ['Time', 'Memory']
 TESTS = ['Time']
-STREAM_EVENTS = [3, 5, 7]
+STREAM_EVENTS = [3, 5]
 STREAM_LENGTH = 60_000_000
-WIN_LENGTH = [100, 200, 300]
+WIN_LENGTH = [100]
 NOISE_EVENTS = [6]
 ITERATIONS = 3
 TIMEOUTS = [30]
@@ -17,7 +17,7 @@ SYSTEMS = ['flink', 'esper8', 'core', 'sase', 'core1']
 # SYSTEMS = ['esper8']
 # SYSTEMS = ['flink']
 # SYSTEMS = ['core']
-TEST_NAME = 'kleene2'
+TEST_NAME = 'kleene'
 CONSUME = True
 NUM_EVENT_DICT = {}
 
