@@ -41,8 +41,8 @@ The experiments scripts are located in the ```scripts``` folder. There's 5 inclu
 All these experiments have many variables that can be changed to change the behavior of the experiments:
 
  - TESTS: A list that can contain either ```'Time'``` or ```'Memory'```. Note that memory tests cannot be run without first running a time test, as the end condition of the memory test depends on the time test.
- - STEAM_EVENTS: A list containing integers. It controls how many events will appear on the query.
- - STEAM_LENGTH: An integer. Controls the length of the stream.
+ - STREAM_EVENTS: A list containing integers. It controls how many events will appear on the query.
+ - STREAM_LENGTH: An integer. Controls the length of the stream.
  - WIN_LENGTH: A list containing integers. Controls the length of the windows used, measured in events.
  - NOISE_EVENTS: A list containing integers. Controls how many events will appear on the stream that are not part of the query.
  - ITERATIONS: An integer. How many iterations of each test will be ran.
