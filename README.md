@@ -31,11 +31,12 @@ The CORE code that was used in the experiments can be found in the CORE reposito
 
 ## Running the experiments
 
-The experiments scripts are located in the ```scripts``` folder. There's 5 included experiments:
+The experiments scripts are located in the ```scripts``` folder. There's 6 included experiments:
  - Sequence: Asks for a simple sequence in a stream. For example A then B then C.
  - Kleene: Asks for a sequence with kleene terms in between. For example A, then one or more B, then C.
  - Sequence no last event: Asks for a simple sequence, but the last event is not present in the stream.
  - Sequence sel: Asks for a simple sequence, but using different selection strategies.
+ - Disjunction: Asks for a sequence with disjunctions in between. For example A, then either B or C, then D.
  - Stock Markets: Asks multiple queries regarding the stock market data.
 
 All these experiments have many variables that can be changed to change the behavior of the experiments:
