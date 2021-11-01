@@ -10,14 +10,14 @@ TESTS = ['Time', 'Memory']
 # TESTS = ['Memory']
 STREAM_EVENTS = [3]
 STREAM_LENGTH = 100_000_000
-WIN_LENGTH = [50, 100, 150, 200, 250, 300]
+WIN_LENGTH = [50, 100, 150, 200]
 NOISE_EVENTS = [6]
 ITERATIONS = 3
-TIMEOUTS = [10, 30]
+TIMEOUTS = [30]
 SYSTEMS = ['flink', 'sase', 'core', 'esper8', 'core1']
 # SYSTEMS = ['core', 'sase']
 # SYSTEMS = ['esper']
-TEST_NAMES = 'seq_no_last_event2'
+TEST_NAMES = 'seq_no_last_event'
 CONSUME = True
 NUM_EVENT_DICT = {}
 
