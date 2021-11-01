@@ -27,7 +27,7 @@ For SASE, just compile manually an artifact with all the dependencies included, 
 
 ### CORE
 
-The CORE code that was used in the experiments can be found in the CORE repository under the ```experiments``` branch. After compiling it, move it to the ``` jars ``` folder and rename it ```core.main.jar```
+The CORE code that was used in the experiments can be found in the CORE repository under the ```experiments``` branch. After compiling it, move it to the ``` jars ``` folder and rename it ```core.main.jar```. Note that at the time of writing this readme, the only differences between the ```experiments``` and ```main``` branches are ```Main.java```, that was modified to print relevant data, and ```execution\callback\MatchCallback.java```, that was modified to have all system print results in a similar style.
 
 ## Running the experiments
 
