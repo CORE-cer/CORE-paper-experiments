@@ -6,12 +6,12 @@ import subprocess
 import sys
 
 TESTS = ['Time']
-WIN_LENGTH = [500, 1000, 2000, 5000, 10000, 30000, 60000, 100000, 1000000, 3600000]
-# WIN_LENGTH = [100]
+# WIN_LENGTH = [500, 1000, 2000, 5000, 10000, 30000, 60000, 100000, 1000000, 3600000]
+WIN_LENGTH = [30000]
 ITERATIONS = 3
 TIMEOUTS = [30]
-# SYSTEMS = ['esper8', 'flink', 'core', 'sase', 'core1']
-SYSTEMS = ['flink']
+SYSTEMS = ['esper8', 'flink', 'core', 'sase']
+# SYSTEMS = ['flink']
 TEST_NAME = 'stock2'
 CONSUME = True
 NUM_EVENT_DICT = {}
