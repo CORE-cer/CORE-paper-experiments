@@ -1,0 +1,31 @@
+select H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22, H23, H24, NE from SmartHomesEvent#ext_timed(plug_timestamp, TIMESTAMP milliseconds)
+match_recognize (
+measures H1 as H1, H2 as H2, H3 as H3, H4 as H4, H5 as H5, H6 as H6, H7 as H7, H8 as H8, H9 as H9, H10 as H10, H11 as H11, H12 as H12, H13 as H13, H14 as H14, H15 as H15, H16 as H16, H17 as H17, H18 as H18, H19 as H19, H20 as H20, H21 as H21, H22 as H22, H23 as H23, H24 as H24, NE as NE
+all matches
+pattern (H1 s* H2 s* H3 s* H4 s* H5 s* H6 s* H7 s* H8 s* H9 s* H10 s* H11 s* H12 s* H13 s* H14 s* H15 s* H16 s* H17 s* H18 s* H19 s* H20 s* H21 s* H22 s* H23 s* H24 s* NE)
+define
+    H1 as H1.value > 76 and H1.household_id = 0,
+    H2 as H2.value > 76 and H2.household_id = 2,
+    H3 as H3.value > 76 and H3.household_id = 4,
+    H4 as H4.value > 76 and H4.household_id = 6,
+    H5 as H5.value > 76 and H5.household_id = 9,
+    H6 as H6.value > 76 and H6.household_id = 10,
+    H7 as H7.value > 76 and H7.household_id = 12,
+    H8 as H8.value > 76 and H8.household_id = 14,
+    H9 as H9.value > 76 and H9.household_id = 15,
+    H10 as H10.value > 76 and H10.household_id = 4,
+    H11 as H11.value > 76 and H11.household_id = 9,
+    H12 as H12.value > 76 and H12.household_id = 10,
+    H13 as H13.value > 76 and H13.household_id = 0,
+    H14 as H14.value > 76 and H14.household_id = 2,
+    H15 as H15.value > 76 and H15.household_id = 4,
+    H16 as H16.value > 76 and H16.household_id = 6,
+    H17 as H17.value > 76 and H17.household_id = 9,
+    H18 as H18.value > 76 and H18.household_id = 10,
+    H19 as H19.value > 76 and H19.household_id = 12,
+    H20 as H20.value > 76 and H20.household_id = 14,
+    H21 as H21.value > 76 and H21.household_id = 15,
+    H22 as H22.value > 76 and H22.household_id = 4,
+    H23 as H23.value > 76 and H23.household_id = 9,
+    H24 as H24.value > 76 and H24.household_id = 10,
+    NE as NE.value > 76 and NE.household_id = 1000)

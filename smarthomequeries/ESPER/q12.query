@@ -1,0 +1,10 @@
+
+select H1, H2, H3, H4 from SmartHomesEvent#ext_timed(plug_timestamp, TIMESTAMP milliseconds)
+match_recognize (
+measures H1 as H1, H2 as H2, H3 as H3, H4 as H4
+pattern (H1 s* H2 s* H3 s* H4)
+define
+    H1 as H1.value > 76 and H1.household_id = 0,
+    H2 as H2.value > 76 and H2.household_id = 2,
+    H3 as H3.value > 76 and H3.household_id = 4,
+    H4 as H4.value > 76 and H4.household_id = 1000)

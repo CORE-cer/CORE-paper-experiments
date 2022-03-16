@@ -1,0 +1,9 @@
+PATTERN SEQ(LOAD a, LOAD b, LOAD c)
+WHERE skip-till-any-match
+AND a.value > 76000
+AND a.household_id = 0
+AND b.value > 76000
+AND b.household_id = 2
+AND c.value > 76000
+AND c.household_id = 4
+WITHIN TIMESTAMP

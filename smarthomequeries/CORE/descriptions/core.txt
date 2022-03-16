@@ -1,0 +1,3 @@
+DECLARE EVENT LOAD(id int,plug_timestamp int,value double,plug_id int, household_id int)
+
+DECLARE STREAM S(LOAD)
