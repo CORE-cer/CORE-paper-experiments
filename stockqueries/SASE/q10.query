@@ -1,0 +1,28 @@
+PATTERN SEQ(SELL a1, BUY b1, BUY c1, SELL d1, BUY e1, BUY f1, SELL g1, BUY h1, BUY i1, SELL j1, BUY k1, BUY l1, SELL m1, BUY n1, BUY o1, SELL p1, BUY q1, BUY r1, SELL s1, BUY t1, BUY u1, SELL v1, BUY w1, BUY x1, BUY y1)
+WHERE skip-till-any-match
+AND a1.name = INTC
+AND b1.name = RIMM
+AND c1.name = QQQ
+AND d1.name = IPIX
+AND e1.name = AMAT
+AND f1.name = CSCO
+AND g1.name = YHOO
+AND h1.name = DELL
+AND i1.name = ORCL
+AND j1.name = MSFT
+AND k1.name = INTC
+AND l1.name = RIMM
+AND m1.name = INTC
+AND n1.name = RIMM
+AND o1.name = QQQ
+AND p1.name = IPIX
+AND q1.name = AMAT
+AND r1.name = CSCO
+AND s1.name = YHOO
+AND t1.name = DELL
+AND u1.name = ORCL
+AND v1.name = MSFT
+AND w1.name = INTC
+AND x1.name = RIMM
+AND y1.name = NotExists
+WITHIN TIMESTAMP

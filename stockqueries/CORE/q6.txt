@@ -1,11 +1,4 @@
-SELECT *
-FROM S
-WHERE (SELL as msft; (BUY OR SELL) as oracle; (BUY OR SELL) as csco; SELL as amat)
-FILTER
-      msft[name='MSFT']
-  AND oracle[name = 'ORCL']
-  AND csco[name='CSCO']
-  AND amat[name='AMAT']
-PARTITION BY [volume]
+SELECT * FROM S
+WHERE (SELL as T1; BUY as T2; BUY as T3; BUY as NE)
+FILTER T1[name = 'INTC'] AND T2[name = 'RIMM'] AND T3[name = 'QQQ'] AND NE[name = 'NotExists'] 
 WITHIN TIMESTAMP [stock_time]
-CONSUME BY ANY

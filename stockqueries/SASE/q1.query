@@ -1,7 +1,6 @@
-PATTERN SEQ(SELL a, BUY b, BUY c, SELL d)
+PATTERN SEQ(SELL a, BUY b, BUY c)
 WHERE skip-till-any-match
-AND a.name = MSFT
-AND b.name = ORCL
-AND c.name = CSCO
-AND d.name = AMAT
+AND a.name = INTC
+AND b.name = RIMM
+AND c.name = QQQ
 WITHIN TIMESTAMP

@@ -1,10 +1,12 @@
-select s1, b1, b2, s2 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
+select s1, b1, b2, s2, b3, b4 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
 match_recognize (
-measures s1 as s1, b1 as b1, b2 as b2, s2 as s2
+measures s1 as s1, b1 as b1, b2 as b2, s2 as s2, b3 as b3, b4 as b4
 all matches
-pattern (s1 s* b1 s* b2 s* s2)
+pattern (s1 s* b1 s* b2 s* s2 s* b3 s* b4)
 define
-    s1 as s1.type = "SELL" and s1.name = "MSFT" and s1.price > 26.0,
-    b1 as b1.type = "BUY" and b1.name = "ORCL" and b1.price > 11.14,
-    b2 as b2.type = "BUY" and b2.name = "CSCO",
-    s2 as s2.type = "SELL" and s2.name = "AMAT" and s2.price >= 18.92)
+    s1 as s1.type = "SELL" and s1.name = "INTC",
+    b1 as b1.type = "BUY" and b1.name = "RIMM",
+    b2 as b2.type = "BUY" and b2.name = "QQQ",
+    s2 as s2.type = "SELL" and s2.name = "IPIX",
+    b3 as b3.type = "BUY" and b3.name = "AMAT",
+    b4 as b4.type = "BUY" and b4.name = "CSCO")

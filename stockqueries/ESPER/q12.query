@@ -1,0 +1,9 @@
+select s1, b1, b2, b3 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
+match_recognize (
+measures s1 as s1, b1 as b1, b2 as b2, b3 as b3
+pattern (s1 s* b1 s* b2 s* b3)
+define
+    s1 as s1.type = "SELL" and s1.name = "INTC",
+    b1 as b1.type = "BUY" and b1.name = "RIMM",
+    b2 as b2.type = "BUY" and b2.name = "QQQ",
+    b3 as b3.type = "BUY" and b3.name = "NotExists")

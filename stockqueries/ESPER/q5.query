@@ -1,10 +1,30 @@
-select s1, b1, b2, s2 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
+select s1, b1, b2, s2, b3, b4, s3, b5, b6, s4, b7, b8, s5, b9, b10, s6, b11, b12, s7, b13, b14, s8, b15, b16 from BuySellEvent#ext_timed(stock_time, TIMESTAMP milliseconds)
 match_recognize (
-measures s1 as s1, b1 as b1, b2 as b2, s2 as s2
+measures s1 as s1, b1 as b1, b2 as b2, s2 as s2, b3 as b3, b4 as b4, s3 as s3, b5 as b5, b6 as b6, s4 as s4, b7 as b7, b8 as b8, s5 as s5, b9 as b9, b10 as b10, s6 as s6, b11 as b11, b12 as b12, s7 as s7, b13 as b13, b14 as b14, s8 as s8, b15 as b15, b16 as b16
 all matches
-pattern (s1 s* b1 s* b2 s* s2)
+pattern (s1 s* b1 s* b2 s* s2 s* b3 s* b4 s* s3 s* b5 s* b6 s* s4 s* b7 s* b8 s* s5 s* b9 s* b10 s* s6 s* b11 s* b12 s* s7 s* b13 s* b14 s* s8 s* b15 s* b16)
 define
-    s1 as s1.type = "SELL" and s1.name = "MSFT" and s1.price > 26.0,
-    b1 as (b1.type = "BUY" or b1.type = "SELL") and b1.name = "ORCL" and b1.price > 11.14,
-    b2 as (b2.type = "BUY" or b2.type = "SELL") and b2.name = "CSCO",
-    s2 as s2.type = "SELL" and s2.name = "AMAT" and s2.price >= 18.92)
+    s1 as s1.type = "SELL" and s1.name = "INTC",
+    b1 as b1.type = "BUY" and b1.name = "RIMM",
+    b2 as b2.type = "BUY" and b2.name = "QQQ",
+    s2 as s2.type = "SELL" and s2.name = "IPIX",
+    b3 as b3.type = "BUY" and b3.name = "AMAT",
+    b4 as b4.type = "BUY" and b4.name = "CSCO",
+    s3 as s3.type = "SELL" and s3.name = "YHOO",
+    b5 as b5.type = "BUY" and b5.name = "DELL",
+    b6 as b6.type = "BUY" and b6.name = "ORCL",
+    s4 as s4.type = "SELL" and s4.name = "MSFT",
+    b7 as b7.type = "BUY" and b7.name = "INTC",
+    b8 as b8.type = "BUY" and b8.name = "RIMM",
+    s5 as s5.type = "SELL" and s5.name = "INTC",
+    b9 as b9.type = "BUY" and b9.name = "RIMM",
+    b10 as b10.type = "BUY" and b10.name = "QQQ",
+    s6 as s6.type = "SELL" and s6.name = "IPIX",
+    b11 as b11.type = "BUY" and b11.name = "AMAT",
+    b12 as b12.type = "BUY" and b12.name = "CSCO",
+    s7 as s7.type = "SELL" and s7.name = "YHOO",
+    b13 as b13.type = "BUY" and b13.name = "DELL",
+    b14 as b14.type = "BUY" and b14.name = "ORCL",
+    s8 as s8.type = "SELL" and s8.name = "MSFT",
+    b15 as b15.type = "BUY" and b15.name = "INTC",
+    b16 as b16.type = "BUY" and b16.name = "RIMM")
