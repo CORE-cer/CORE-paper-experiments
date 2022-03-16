@@ -1,0 +1,12 @@
+select loc1, loc2, loc3, loc4, loc5, loc6 from TaxiEvent#ext_timed(dropoff_datetime, TIMESTAMP milliseconds)
+match_recognize (
+measures loc1 as loc1, loc2 as loc2, loc3 as loc3, loc4 as loc4, loc5 as loc5, loc6 as loc6
+all matches
+pattern (loc1 s* loc2 s* loc3 s* loc4 s* loc5 s* loc6)
+define
+    loc1 as loc1.pickup_zone = 'East Harlem North' and loc1.dropoff_zone = 'Midwood',
+    loc2 as loc2.pickup_zone = 'Midwood' and loc2.dropoff_zone = 'Gravesend',
+    loc3 as loc3.pickup_zone = 'Gravesend' and loc3.dropoff_zone = 'West Brighton',
+    loc4 as loc4.pickup_zone = 'West Brighton' and loc4.dropoff_zone = 'Lincoln Square West',
+    loc5 as loc5.pickup_zone = 'Lincoln Square West' and loc5.dropoff_zone = 'Sutton Place/Turtle Bay North',
+    loc6 as loc6.pickup_zone = 'Sutton Place/Turtle Bay North' and loc6.dropoff_zone = 'East Concourse/Concourse Village')

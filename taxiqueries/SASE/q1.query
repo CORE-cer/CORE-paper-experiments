@@ -1,0 +1,9 @@
+PATTERN SEQ(TRIP a, TRIP b, TRIP c)
+WHERE skip-till-any-match
+AND a.pickup_zone = East Harlem North
+AND a.dropoff_zone = Midwood
+AND b.pickup_zone = Midwood
+AND b.dropoff_zone = Gravesend
+AND c.pickup_zone = Gravesend
+AND c.dropoff_zone = West Brighton
+WITHIN TIMESTAMP

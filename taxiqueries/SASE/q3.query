@@ -1,0 +1,21 @@
+PATTERN SEQ(TRIP a, TRIP b, TRIP c, TRIP d, TRIP e, TRIP f, TRIP g, TRIP h, TRIP i)
+WHERE skip-till-any-match
+AND a.pickup_zone = East Harlem North
+AND a.dropoff_zone = Midwood
+AND b.pickup_zone = Midwood
+AND b.dropoff_zone = Gravesend
+AND c.pickup_zone = Gravesend
+AND c.dropoff_zone = West Brighton
+AND d.pickup_zone = West Brighton
+AND d.dropoff_zone = Lincoln Square West
+AND e.dropoff_zone = Lincoln Square West
+AND e.dropoff_zone = LSutton Place/Turtle Bay North
+AND f.dropoff_zone = LSutton Place/Turtle Bay North
+AND f.dropoff_zone = East Concourse/Concourse Village
+AND g.dropoff_zone = East Concourse/Concourse Village
+AND g.dropoff_zone = East Harlem North
+AND h.dropoff_zone = East Harlem North
+AND h.dropoff_zone = East Harlem North
+AND i.dropoff_zone = East Harlem North
+AND i.dropoff_zone = Gravesend
+WITHIN TIMESTAMP
