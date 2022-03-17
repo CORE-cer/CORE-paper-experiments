@@ -2,6 +2,8 @@ package edu.puc.flink;
 
 import org.apache.flink.cep.pattern.conditions.SimpleCondition;
 
+import java.util.Objects;
+
 public class Conditions {
 
     public static SimpleCondition<Event> equals(String eventType){
@@ -76,6 +78,54 @@ public class Conditions {
             public boolean filter(Event value) {
                 if (value instanceof StockEvent) {
                     return ((StockEvent) value).getVolume() == volume;
+                }
+                return false;
+            }
+        };
+    }
+
+    public static SimpleCondition<Event> value_grater(int val) {
+        return new SimpleCondition<Event>() {
+            @Override
+            public boolean filter(Event value) {
+                if (value instanceof SmartHomesEvent) {
+                    return ((SmartHomesEvent) value).getValue() > val;
+                }
+                return false;
+            }
+        };
+    }
+
+    public static SimpleCondition<Event> hh_id_equals(int val) {
+        return new SimpleCondition<Event>() {
+            @Override
+            public boolean filter(Event value) {
+                if (value instanceof SmartHomesEvent) {
+                    return ((SmartHomesEvent) value).getHousehold_id() == val;
+                }
+                return false;
+            }
+        };
+    }
+
+    public static SimpleCondition<Event> pickup_zone_equals(String val) {
+        return new SimpleCondition<Event>() {
+            @Override
+            public boolean filter(Event value) {
+                if (value instanceof TaxiEvent) {
+                    return Objects.equals(((TaxiEvent) value).getPickup_zone(), val);
+                }
+                return false;
+            }
+        };
+    }
+
+    public static SimpleCondition<Event> dropoff_zone_equals(String val) {
+        return new SimpleCondition<Event>() {
+            @Override
+            public boolean filter(Event value) {
+                if (value instanceof TaxiEvent) {
+                    return Objects.equals(((TaxiEvent) value).getDropoff_zone(), val);
                 }
                 return false;
             }

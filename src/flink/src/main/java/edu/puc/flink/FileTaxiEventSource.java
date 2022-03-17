@@ -8,20 +8,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class FileStockEventSource extends RichParallelSourceFunction<Event> {
+public class FileTaxiEventSource extends RichParallelSourceFunction<Event> {
     private final String fileName;
     public static int events = 0;
 
 
-    FileStockEventSource(String streamFileName){
+    FileTaxiEventSource(String streamFileName){
         fileName = streamFileName;
     }
 
     @Override
     public void run(SourceContext<Event> ctx) throws Exception {
-        if (!Stock.memoryTest) {
+        if (!Taxi.memoryTest) {
             try {
-                int timeout = Stock.timeout;
+                int timeout = Taxi.timeout;
                 FileReader file = new FileReader(fileName);
                 BufferedReader reader = new BufferedReader(file);
                 LinkedList<Event> eventList = new LinkedList<>();
@@ -29,23 +29,22 @@ public class FileStockEventSource extends RichParallelSourceFunction<Event> {
                 String line;
 
                 while ((line = reader.readLine()) != null){
-                    StockEvent event = StockEvent.getEventFromString(line);
+                    TaxiEvent event = TaxiEvent.getEventFromString(line);
                     eventList.add(event);
                 }
 
                 (new Thread(() -> {
                     try {
-                        Thread.sleep(timeout * 1000000L);
+                        Thread.sleep(30000);
                         System.out.print((double)(System.nanoTime() - start)/1000000000 + ",");
                         System.out.print(events + ",");
-                        System.out.print((double)Stock.enumerationTime/1000000000 + ",");
-                        System.out.print(Stock.totalResults);
+                        System.out.print((double)Taxi.enumerationTime/1000000000 + ",");
+                        System.out.print(Taxi.totalResults);
                         System.out.println();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 })).start();
-
 
                 while (!eventList.isEmpty()) {
                     events++;
@@ -69,7 +68,7 @@ public class FileStockEventSource extends RichParallelSourceFunction<Event> {
             }}
         else {
             try {
-                int timeout = Stock.timeout;
+                int timeout = Taxi.timeout;
                 FileReader file = new FileReader(fileName);
                 BufferedReader reader = new BufferedReader(file);
                 long start = System.nanoTime();
@@ -82,40 +81,39 @@ public class FileStockEventSource extends RichParallelSourceFunction<Event> {
                 (new Thread(() -> {
                     try {
                         Thread.sleep(timeout * 1000L);
-                        if (Stock.count == 0) {
-                            Stock.count = 1;
+                        if (Taxi.count == 0) {
+                            Taxi.count = 1;
                         }
-                        System.out.print(Stock.maxMemTotal + ",");
-                        System.out.print(Stock.avgMemTotal/Stock.count + ",");
-                        System.out.print(Stock.maxMemUsed + ",");
-                        System.out.println(Stock.avgMemUsed/Stock.count);
+                        System.out.print(Taxi.maxMemTotal + ",");
+                        System.out.print(Taxi.avgMemTotal/Taxi.count + ",");
+                        System.out.print(Taxi.maxMemUsed + ",");
+                        System.out.println(Taxi.avgMemUsed/Taxi.count);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 })).start();
-
                 while ((line = reader.readLine()) != null) {
                     if (Main.maxEvents != 0 && events >= Main.maxEvents) {
                         break;
                     }
-                    StockEvent event = StockEvent.getEventFromString(line);
+                    TaxiEvent event = TaxiEvent.getEventFromString(line);
                     tmp = System.nanoTime();
                     ctx.collect(event);
                     total += System.nanoTime() - tmp;
                     events++;
                     if (events % 10000 == 0) {
-                        Stock.avgMemTotal = Runtime.getRuntime().totalMemory();
-                        Stock.avgMemTotal += Stock.avgMemTotal;
-                        if (Stock.avgMemTotal > Stock.maxMemTotal) {
-                            Stock.maxMemTotal = Stock.avgMemTotal;
+                        Taxi.avgMemTotal = Runtime.getRuntime().totalMemory();
+                        Taxi.avgMemTotal += Taxi.avgMemTotal;
+                        if (Taxi.avgMemTotal > Taxi.maxMemTotal) {
+                            Taxi.maxMemTotal = Taxi.avgMemTotal;
                         }
                         System.gc();
-                        Stock.avgMemUsed = Stock.avgMemTotal - Runtime.getRuntime().freeMemory();
-                        Stock.avgMemUsed += Stock.avgMemUsed;
-                        if (Stock.avgMemUsed > Stock.maxMemUsed) {
-                            Stock.maxMemUsed = Stock.avgMemUsed;
+                        Taxi.avgMemUsed = Taxi.avgMemTotal - Runtime.getRuntime().freeMemory();
+                        Taxi.avgMemUsed += Taxi.avgMemUsed;
+                        if (Taxi.avgMemUsed > Taxi.maxMemUsed) {
+                            Taxi.maxMemUsed = Taxi.avgMemUsed;
                         }
-                        Stock.count++;
+                        Taxi.count++;
                     }
                     if (timeout != 0 && System.nanoTime() - start >= timeout * 1000000000L) {
                         //                    System.err.println(event.getId());
@@ -132,7 +130,7 @@ public class FileStockEventSource extends RichParallelSourceFunction<Event> {
                 //        System.out.println(EventListener.totalMatches);
 
                 //            System.out.println("context collection time: " + (total / 1000000));
-                Stock.executionTime = total;
+                Taxi.executionTime = total;
                 try {
                     reader.close();
                 } catch (IOException ex) {
