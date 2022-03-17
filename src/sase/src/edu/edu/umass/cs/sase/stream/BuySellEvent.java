@@ -244,13 +244,13 @@ public class BuySellEvent implements Event {
 		toReturn.setEventType(data.substring(0, offset));
 		data = data.split("[()]")[1];
 		List<String> data_values = Arrays.asList(data.split(","));
-		String name = data_values.get(0).split("=")[1];
+		toReturn.setMy_id(Integer.parseInt(data_values.get(0).split("=")[1]));
+		String name = data_values.get(1).split("=")[1];
 		if (nameMap.get(name) == null) {
 			nameMap.put(name, nameCounter);
 			nameCounter++;
 		}
 		toReturn.setName(name);
-		toReturn.setMy_id(Integer.parseInt(data_values.get(1).split("=")[1]));
 		toReturn.setVolume(Integer.parseInt(data_values.get(2).split("=")[1]));
 		toReturn.setPrice(Double.parseDouble(data_values.get(3).split("=")[1]));
 		toReturn.setStock_time(Integer.parseInt(data_values.get(4).split("=")[1]));

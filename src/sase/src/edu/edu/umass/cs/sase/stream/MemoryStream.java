@@ -11,7 +11,7 @@ public class MemoryStream extends Stream {
     private BufferedReader fileStream;
     private int maxEvents;
     private int eventsNum;
-    private boolean buy_sell;
+    private int buy_sell;
     private boolean double_letter;
 
     /**
@@ -19,7 +19,7 @@ public class MemoryStream extends Stream {
      *
      * @param size the size of the stream
      */
-    public MemoryStream(int size, String fileName, int maxEvents, boolean buy_sell, boolean double_letter) throws FileNotFoundException {
+    public MemoryStream(int size, String fileName, int maxEvents, int buy_sell, boolean double_letter) throws FileNotFoundException {
         super(size);
         FileReader file = new FileReader(fileName);
         fileStream = new BufferedReader(file);
@@ -36,8 +36,14 @@ public class MemoryStream extends Stream {
                 if (maxEvents != 0 && eventsNum >= maxEvents) {
                     return null;
                 }
-                if (buy_sell) {
+                if (buy_sell == 1) {
                     return BuySellEvent.getEventFromString(line);
+                }
+                else if (buy_sell == 2) {
+                    return SmartHomeEvent.getEventFromString(line);
+                }
+                else if (buy_sell == 3) {
+                    return TaxiEvent.getEventFromString(line);
                 }
                 else if (double_letter) {
                     int id = Integer.parseInt(line.substring(6, line.length() - 1));

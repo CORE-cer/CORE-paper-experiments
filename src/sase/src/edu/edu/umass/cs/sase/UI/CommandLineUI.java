@@ -70,7 +70,7 @@ public class CommandLineUI {
 		ConfigFlags.printResults = true;
 		memoryTest = Boolean.parseBoolean(args[3]);
 		boolean double_letter = Boolean.parseBoolean(args[4]);
-		boolean buy_sell = false;
+		int buy_sell = 0;
 		if (memoryTest) {
 			System.gc();
 			Profiling.initialMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -82,7 +82,7 @@ public class CommandLineUI {
 			max_events = Integer.parseInt(args[5]);
 		}
 		if(args.length > 6){
-			buy_sell = Boolean.parseBoolean(args[6]);
+			buy_sell = Integer.parseInt(args[6]);
 		}
 		if(args.length > 7){
 			Engine.timeout = Integer.parseInt(args[7]);
@@ -104,8 +104,14 @@ public class CommandLineUI {
 				if (max_events != 0 && eventsNum >= max_events) {
 					break;
 				}
-				if (buy_sell) {
+				if (buy_sell == 1) {
 					events.add(BuySellEvent.getEventFromString(line));
+				}
+				else if (buy_sell == 2) {
+					events.add(SmartHomeEvent.getEventFromString(line));
+				}
+				else if (buy_sell == 3) {
+					events.add(TaxiEvent.getEventFromString(line));
 				}
 				else if (double_letter) {
 					id = Integer.parseInt(line.substring(6, line.length() - 1));
@@ -139,7 +145,7 @@ public class CommandLineUI {
 		myEngineController.runEngine();
 
 		if (!memoryTest) {
-			if (buy_sell) {
+			if (buy_sell > 0) {
 				System.out.print((double)(System.nanoTime() - Engine.start)/1000000000 + ",");
 			}
 			System.out.print(Profiling.numberOfEvents + ",");
