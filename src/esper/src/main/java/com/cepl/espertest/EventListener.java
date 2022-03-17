@@ -9,7 +9,7 @@ public class EventListener implements UpdateListener{
     public static long totalTime = 0;   
     public static long totalMatches = 0;
     public static int count = 0;
-    public static int limit = 10;
+    public static int limit = 1000;
 
     public static String getEPL(){
         // return "select a, b, c from pattern @DiscardPartialsOnMatch" +
@@ -44,56 +44,77 @@ public class EventListener implements UpdateListener{
             //                 System.err.print(a + " ");
             //             }
             try {
-//                System.err.print(bean.get("s1") + " ");
-//                System.err.print(bean.get("b1") + " ");
-//                System.err.print(bean.get("b2") + " ");
-//                //                if (bean.get("b1") != null)
-//                //                    for (BuySellEvent a: (BuySellEvent[]) bean.get("b1")){
-//                //                        System.err.print(a + " ");
-//                //                    }
-//                //                if (bean.get("b2") != null)
-//                //                    for (BuySellEvent a: (BuySellEvent[]) bean.get("b2")){
-//                //                        System.err.print(a + " ");
-//                //                    }
+                System.err.print(bean.get("H1") + " ");
+                System.err.print(bean.get("H2") + " ");
+                System.err.print(bean.get("H3") + " ");
+                System.err.print(bean.get("H4") + " ");
+                System.err.print(bean.get("H5") + " ");
+                System.err.print(bean.get("H6") + " ");
+                System.err.print(bean.get("H7") + " ");
+                System.err.print(bean.get("H8") + " ");
+                System.err.print(bean.get("H9") + " ");
+                System.err.print(bean.get("H10") + " ");
+                System.err.print(bean.get("H11") + " ");
+                System.err.print(bean.get("H12") + " ");
+                System.err.print(bean.get("H13") + " ");
+                System.err.print(bean.get("H14") + " ");
+                System.err.print(bean.get("H15") + " ");
+                System.err.print(bean.get("H16") + " ");
+                System.err.print(bean.get("H17") + " ");
+                System.err.print(bean.get("H18") + " ");
+                System.err.print(bean.get("H19") + " ");
+                System.err.print(bean.get("H20") + " ");
+                System.err.print(bean.get("H21") + " ");
+                System.err.print(bean.get("H22") + " ");
+                System.err.print(bean.get("H23") + " ");
+                System.err.print(bean.get("H24") + " ");
+//                    if (bean.get("b1") != null)
+//                        for (BuySellEvent a: (BuySellEvent[]) bean.get("b1")){
+//                            System.err.print(a + " ");
+//                        }
+//                    if (bean.get("b2") != null)
+//                        for (BuySellEvent a: (BuySellEvent[]) bean.get("b2")){
+//                            System.err.print(a + " ");
+//                        }
 //                System.err.print(bean.get("s2") + " ");
-                    System.err.print(bean.get("aa") + " ");
-                    System.err.print(bean.get("ab") + " ");
-                    System.err.print(bean.get("ac") + " ");
-                    System.err.print(bean.get("ad") + " ");
-                    System.err.print(bean.get("ae") + " ");
-                    System.err.print(bean.get("af") + " ");
-                    System.err.print(bean.get("ag") + " ");
-                    System.err.print(bean.get("ah") + " ");
-                    System.err.print(bean.get("ai") + " ");
-                    System.err.print(bean.get("aj") + " ");
-                    System.err.print(bean.get("ak") + " ");
-                    System.err.print(bean.get("al") + " ");
-                    System.err.print(bean.get("am") + " ");
-                    System.err.print(bean.get("an") + " ");
-                    System.err.print(bean.get("ao") + " ");
-                    System.err.print(bean.get("ap") + " ");
-                    System.err.print(bean.get("aq") + " ");
-                    System.err.print(bean.get("ar") + " ");
-                    System.err.print(bean.get("au") + " ");
-                    System.err.print(bean.get("av") + " ");
-                    System.err.print(bean.get("aw") + " ");
-                    System.err.print(bean.get("ax") + " ");
-                    System.err.print(bean.get("ay") + " ");
-                    System.err.print(bean.get("az") + " ");
-                    System.err.print(bean.get("ba") + " ");
-                    System.err.print(bean.get("bb") + " ");
-                    System.err.print(bean.get("bc") + " ");
-                    System.err.print(bean.get("bd") + " ");
-                    System.err.print(bean.get("be") + " ");
-                    System.err.print(bean.get("bf") + " ");
-                    System.err.print(bean.get("bg") + " ");
-                    System.err.print(bean.get("bh") + " ");
-                    System.err.print(bean.get("bi") + " ");
-                    System.err.print(bean.get("bj") + " ");
-                    System.err.print(bean.get("bk") + " ");
-                    System.err.print(bean.get("bl") + " ");
-                    System.err.print(bean.get("bm") + " ");
-                    System.err.print(bean.get("bn") + " ");
+//                    System.err.print(bean.get("aa") + " ");
+//                    System.err.print(bean.get("ab") + " ");
+//                    System.err.print(bean.get("ac") + " ");
+//                    System.err.print(bean.get("ad") + " ");
+//                    System.err.print(bean.get("ae") + " ");
+//                    System.err.print(bean.get("af") + " ");
+//                    System.err.print(bean.get("ag") + " ");
+//                    System.err.print(bean.get("ah") + " ");
+//                    System.err.print(bean.get("ai") + " ");
+//                    System.err.print(bean.get("aj") + " ");
+//                    System.err.print(bean.get("ak") + " ");
+//                    System.err.print(bean.get("al") + " ");
+//                    System.err.print(bean.get("am") + " ");
+//                    System.err.print(bean.get("an") + " ");
+//                    System.err.print(bean.get("ao") + " ");
+//                    System.err.print(bean.get("ap") + " ");
+//                    System.err.print(bean.get("aq") + " ");
+//                    System.err.print(bean.get("ar") + " ");
+//                    System.err.print(bean.get("au") + " ");
+//                    System.err.print(bean.get("av") + " ");
+//                    System.err.print(bean.get("aw") + " ");
+//                    System.err.print(bean.get("ax") + " ");
+//                    System.err.print(bean.get("ay") + " ");
+//                    System.err.print(bean.get("az") + " ");
+//                    System.err.print(bean.get("ba") + " ");
+//                    System.err.print(bean.get("bb") + " ");
+//                    System.err.print(bean.get("bc") + " ");
+//                    System.err.print(bean.get("bd") + " ");
+//                    System.err.print(bean.get("be") + " ");
+//                    System.err.print(bean.get("bf") + " ");
+//                    System.err.print(bean.get("bg") + " ");
+//                    System.err.print(bean.get("bh") + " ");
+//                    System.err.print(bean.get("bi") + " ");
+//                    System.err.print(bean.get("bj") + " ");
+//                    System.err.print(bean.get("bk") + " ");
+//                    System.err.print(bean.get("bl") + " ");
+//                    System.err.print(bean.get("bm") + " ");
+//                    System.err.print(bean.get("bn") + " ");
             } catch (Throwable ignored) {
                 totalTime += System.nanoTime() - startTime;
                 startTime = System.nanoTime();

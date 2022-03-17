@@ -97,8 +97,8 @@ public class BuySellEvent {
         toReturn.setType(data.substring(0, offset));
         data = data.split("[()]")[1];
         List<String> data_values = Arrays.asList(data.split(","));
-        toReturn.setName(data_values.get(0).split("=")[1]);
-        toReturn.setId(Integer.parseInt(data_values.get(1).split("=")[1]));
+        toReturn.setId(Integer.parseInt(data_values.get(0).split("=")[1]));
+        toReturn.setName(data_values.get(1).split("=")[1]);
         toReturn.setVolume(Integer.parseInt(data_values.get(2).split("=")[1]));
         toReturn.setPrice(Double.parseDouble(data_values.get(3).split("=")[1]));
         toReturn.setStock_time(Integer.parseInt(data_values.get(4).split("=")[1]));

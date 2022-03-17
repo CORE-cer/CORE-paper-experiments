@@ -136,6 +136,10 @@ public class App
                     }
                 }
 
+                if (count == 0) {
+                    count = 1;
+                }
+
                 System.out.print(maxMemTotal + ",");
                 System.out.print(avgMemTotal / count + ",");
                 System.out.print(maxMemUsed + ",");
